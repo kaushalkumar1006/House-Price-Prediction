@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <!-- Header -->
+            <div class="header">
+
+                <h1>
+                    <i class="fa-solid fa-house"></i>
+                    House Price Prediction
+                </h1>
+
+                <p class="subtitle">
+                    AI Powered House Price Prediction using Linear Regression
+                </p>
+
+            </div>
+
+            <!-- Form -->
+            <form action="/predict" method="POST">
+
+                <!-- Income -->
+                <div class="input-group">
+                    <label>
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        Avg. Area Income
+                    </label>
+
+                    <input type="number"
+                        name="income"
+                        step="any"
+                        min="10000"
+                        max="120000"
+                        placeholder="Example: 65000"
+                        required>
+
+                    <small>Enter a value between <b>10,000</b> and <b>120,000</b></small>
+                </div>
+
+                <!-- House Age -->
+                <div class="input-group">
+                    <label>
+                        <i class="fa-solid fa-house-chimney"></i>
+                        Avg. Area House Age
+                    </label>
+
+                    <input type="number"
+                        name="age"
+                        step="any"
+                        min="1"
+                        max="20"
+                        placeholder="Example: 6"
+                        required>
+
+                    <small>Enter house age between <b>1</b> and <b>20</b> years</small>
+                </div>
+
+                <!-- Rooms -->
+                <div class="input-group">
+                    <label>
+                        <i class="fa-solid fa-door-open"></i>
+                        Avg. Area Number of Rooms
+                    </label>
+
+                    <input type="number"
+                        name="rooms"
+                        step="any"
+                        min="2"
+                        max="10"
+                        placeholder="Example: 7"
+                        required>
+
+                    <small>Enter total rooms between <b>2</b> and <b>10</b></small>
+                </div>
+
+                <!-- Bedrooms -->
+                <div class="input-group">
+                    <label>
+                        <i class="fa-solid fa-bed"></i>
+                        Avg. Area Number of Bedrooms
+                    </label>
+
+                    <input type="number"
+                        name="bedrooms"
+                        step="any"
+                        min="1"
+                        max="6"
+                        placeholder="Example: 3"
+                        required>
+
+                    <small>Enter bedrooms between <b>1</b> and <b>6</b></small>
+                </div>
+
+                <!-- Population -->
+                <div class="input-group">
+                    <label>
+                        <i class="fa-solid fa-users"></i>
+                        Area Population
+                    </label>
+
+                    <input type="number"
+                        name="population"
+                        step="any"
+                        min="5000"
+                        max="100000"
+                        placeholder="Example: 35000"
+                        required>
+
+                    <small>Enter population between <b>5,000</b> and <b>100,000</b></small>
+                </div>
+
+                <button type="submit">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Predict House Price
+                </button>
+
+            </form>
+
+            <!-- Prediction Result -->
+            {% if prediction_text %}
+            <div class="result">
+
+                <h2>
+                    <i class="fa-solid fa-coins"></i>
+                    Prediction Result
+                </h2>
+
+                <p>{{ prediction_text }}</p>
+
+            </div>
+            {% endif %}
+
+            <!-- Footer -->
+            <div class="footer">
+
+                <p>
+                    <i class="fa-solid fa-user-graduate"></i>
+                    Developed by <strong>Kaushal Kumar</strong>
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-robot"></i>
+                    Machine Learning Project | Linear Regression
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
